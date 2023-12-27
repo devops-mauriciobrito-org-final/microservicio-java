@@ -11,6 +11,4 @@ public class HomeController {
 	public @ResponseBody String greeting() {
 		return "Hola, soy Mauricio Brito";
 	}
-
-	//recompilado
 }
