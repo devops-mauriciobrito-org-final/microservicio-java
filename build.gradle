@@ -22,10 +22,10 @@ dependencies {
 
 sonar {
   properties {
-    property "sonar.projectKey", "mauriciorbrito_pet-clinic"
-    property "sonar.organization", "mauriciorbrito"
+    property "sonar.projectKey", "devops-mauriciobrito-org-final_microservicio-java"
+    property "sonar.organization", "devops-mauriciobrito-org-final"
     property "sonar.host.url", "https://sonarcloud.io/"
-    property "sonar.projectName", "pet-clinic"
+    property "sonar.projectName", "microservicio-java"
   }
 }
 
