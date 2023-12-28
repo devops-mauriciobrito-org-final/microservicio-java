@@ -13,6 +13,8 @@ jobs:
           echo "Building"
           chmod +x gradlew
           ./gradlew build
+          ls build/libs
+          build_output=$(ls -t build/libs/*.jar | head -n 1)
           ls -ltr
 
       - name: Análisis con SonarCloud
