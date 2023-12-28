@@ -74,4 +74,4 @@ jobs:
 
       - name: Ejecutar jMeter
         run: |
-          ./apache-jmeter-5.6.2/bin/jmeter.sh -n -t testRendimiento/PruebasJMeter_MauricioBrito.jmx -l testRendimiento/respuestaJMeter.html
+          ./apache-jmeter-5.6.2/bin/jmeter.sh -n -t testRendimiento/PruebasJMeter_MauricioBrito.jmx -l testRendimiento/respuestaJMeter.jtl
