@@ -36,7 +36,7 @@ jobs:
       
       - name: Construccion de Docker
         run: |
-          docker build --tag mauriciorbrito/microservicio-java:lastest .
+          docker build --tag mauriciorbrito/microservicio-java:latest .
           docker images
 
       - name: Docker Push
