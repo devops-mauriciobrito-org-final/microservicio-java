@@ -87,26 +87,27 @@ jobs:
     runs-on: self-hosted
     needs: aceptacion
     steps:
-      - name: Install Postman
+      - name: instalacion de Postman
         run: |
           # Descargar el instalador de Postman
           Invoke-WebRequest -Uri 'https://dl.pstmn.io/download/latest/win64' -OutFile 'postman.zip'
-
+  
           # Descomprimir el archivo ZIP
           Expand-Archive -Path 'postman.zip' -DestinationPath 'C:\Postman' -Force
-
-          # Agregar el directorio de Postman al PATH
-          $env:Path += ';C:\Postman\Postman'
-
+          dir
+  
           # Limpiar el archivo ZIP
           Remove-Item -Path 'postman.zip' -Force
-
-      - name: Verify Postman installation
-        run: postman --version
-
-      - name: Run Postman tests
-        run: postman run testRendimiento/PruebasPostma_MauricioBrito.json
-    
+  
+      - name: Verificación de la instalación
+        run: |
+          'C:\Postman\Postman\Postman.exe' --version
+          dir
+  
+      - name: Ejecutar Postman
+        run: |
+          'C:\Postman\Postman\Postman.exe' run testRendimiento/PruebasPostma_MauricioBrito.json
+          
 
 
 
