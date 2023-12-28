@@ -17,6 +17,11 @@ jobs:
           build_output=$(ls -t build/libs/*.jar | head -n 1)
           ls -ltr 
 
+      - name: Covertura de Codigo
+        run: |
+          chmod +x gradlew
+          ./gradlew clean build jacocoTestCoverageVerification
+
       - name: Análisis con SonarCloud
         run: |
           chmod +x gradlew 
