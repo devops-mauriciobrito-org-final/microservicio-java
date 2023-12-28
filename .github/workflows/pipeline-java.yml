@@ -26,6 +26,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Copia de Jar a Raiz de proyecto
+        run: |
+          cp $GITHUB_WORKSPACE/build/libs/microservicio-java.jar .
+          chmod 777 microservicio-java.jar
+          ls -lt 
+      
       - name: Construccion de Docker
         run: |
           docker build --tag mauriciorbrito/microservicio-java:lastest .
@@ -33,4 +39,4 @@ jobs:
 
       - name: Docker Push
         run: |
-          docker push mauriciorbrito/microservicio-java:lastest
+          docker push mauriciorbrito/microservicio-java
