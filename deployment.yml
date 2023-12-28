@@ -19,4 +19,4 @@ spec:
       - name: microservicio-java
         image: mauriciorbrito/microservicio-java:latest
         ports:
-        - containerPort: 8085
+        - containerPort: 8080
