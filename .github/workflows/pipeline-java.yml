@@ -99,11 +99,6 @@ jobs:
           # Limpiar el archivo ZIP
           Remove-Item -Path 'postman.zip' -Force
   
-      - name: Verificación de la instalación
-        run: |
-          & 'C:\Postman\Postman\Postman.exe' "--version"
-          dir
-  
       - name: Ejecutar Postman
         run: |
           'C:\Postman\Postman\Postman.exe' run testRendimiento/PruebasPostma_MauricioBrito.json
