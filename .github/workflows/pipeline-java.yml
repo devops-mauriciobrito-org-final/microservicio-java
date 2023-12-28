@@ -69,7 +69,8 @@ jobs:
       - name: Ejecutar jMeter
         run: |
           Get-Location
-          .\apache-jmeter-5.6.2\bin\jmeter.bat -n -t testRendimiento\PruebasJMeter_MauricioBrito.jmx -l testRendimiento\respuestaJMeter.jtl
+          .\apache-jmeter-5.6.2\bin\jmeter.bat -n -t testRendimiento\PruebasJMeter_MauricioBrito.jmx -l testRendimiento\respuestaJMeter.jtl -e -o ./reportHtml
+          dir
 
       - name: Verificar entorno
         run: |
