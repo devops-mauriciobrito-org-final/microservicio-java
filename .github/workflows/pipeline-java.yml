@@ -87,22 +87,22 @@ jobs:
     runs-on: self-hosted
     needs: aceptacion
     steps:
-      - name: instalacion de Postman
+      - name: Instalar Chocolatey
         run: |
-          # Descargar el instalador de Postman
-          Invoke-WebRequest -Uri 'https://dl.pstmn.io/download/latest/win64' -OutFile 'postman.zip'
-  
-          # Descomprimir el archivo ZIP
-          Expand-Archive -Path 'postman.zip' -DestinationPath '.\Postman' -Force
-          dir
-  
-          # Limpiar el archivo ZIP
-          Remove-Item -Path 'postman.zip' -Force
-  
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+          iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+      - name: Instalar Node / Newman
+        run: |
+          choco install nodejs
+          npm install -g newman-reporter-htmlextra
+          npm install -g newman
+
       - name: Ejecutar Postman
         run: |
-          dir
-          '.\Postman\Postman.exe' run testRendimiento/PruebasPostma_MauricioBrito.json
+          newman run testRendimiento\PruebasPostma_MauricioBrito.json URL=http://127.0.0.1:8080/ -r cli,htmlextra --reporter-htmlextra-export resultadoPostman.html
+        
           
 
 
