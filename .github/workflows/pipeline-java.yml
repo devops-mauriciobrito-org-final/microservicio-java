@@ -71,10 +71,6 @@ jobs:
           Get-Location
           .\apache-jmeter-5.6.2\bin\jmeter.bat -n -t testRendimiento\PruebasJMeter_MauricioBrito.jmx -l testRendimiento\respuestaJMeter.jtl
 
-      - name: Establecer permisos de ejecución
-        run: |
-          Set-ExecutionPolicy RemoteSigned
-
       - name: Verificar entorno
         run: |
           Get-ChildItem Env:
