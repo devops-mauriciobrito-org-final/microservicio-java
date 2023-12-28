@@ -64,7 +64,7 @@ jobs:
         run: |
           curl https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.6.2.tgz
           tar -xvzf apache-jmeter-5.6.2.tgz
-          ls -ltr
+          ls -lt
 
       - name: Download Node.js And Newman
         run: |
@@ -74,8 +74,8 @@ jobs:
 
       - name: Ejecutar jMeter
         run: |
-          ls -ltr
+          ls -lt
           cd apache-jmeter-5.6.2
-          ls -ltr
+          ls -lt
           chmod 755 bin/jmeter.sh
           ./apache-jmeter-5.6.2/bin/jmeter.sh -n -t testRendimiento/PruebasJMeter_MauricioBrito.jmx -l testRendimiento/respuestaJMeter.jtl
