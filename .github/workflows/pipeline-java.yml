@@ -28,7 +28,7 @@ jobs:
 
       - name: Copia de Jar a Raiz de proyecto
         run: |
-          cp $GITHUB_WORKSPACE/build/libs/microservicio-java.jar .
+          cp $GITHUB_WORKSPACE/build/libs/*.jar .
           chmod 777 microservicio-java.jar
           ls -lt 
       
@@ -40,3 +40,14 @@ jobs:
       - name: Docker Push
         run: |
           docker push mauriciorbrito/microservicio-java
+
+  deploy: 
+    runs-on: self-hosted 
+    needs: build
+    steps: 
+
+    - uses: actions/checkout@v3
+    
+    - name: Deploy to Minikube
+      run: |
+        kubectl apply -f deployment.yml
