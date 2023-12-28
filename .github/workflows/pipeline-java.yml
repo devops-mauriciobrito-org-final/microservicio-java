@@ -13,14 +13,14 @@ jobs:
           echo "Building"
           chmod +x gradlew
           ./gradlew build
-          ls build/libs
+          ls -ltr build/libs
           build_output=$(ls -t build/libs/*.jar | head -n 1)
-          ls -ltr
+          ls -ltr 
 
       - name: Análisis con SonarCloud
         run: |
           chmod +x gradlew 
-          ./gradlew build sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+          
 
       - name: Login al Docker
         uses: docker/login-action@v2.2.0
