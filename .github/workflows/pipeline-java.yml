@@ -93,7 +93,7 @@ jobs:
           Invoke-WebRequest -Uri 'https://dl.pstmn.io/download/latest/win64' -OutFile 'postman.zip'
   
           # Descomprimir el archivo ZIP
-          Expand-Archive -Path 'postman.zip' -DestinationPath 'C:\Postman' -Force
+          Expand-Archive -Path 'postman.zip' -DestinationPath '.\Postman' -Force
           dir
   
           # Limpiar el archivo ZIP
@@ -101,7 +101,8 @@ jobs:
   
       - name: Ejecutar Postman
         run: |
-          'C:\Postman\Postman\Postman.exe' run testRendimiento/PruebasPostma_MauricioBrito.json
+          dir
+          '.\Postman\Postman.exe' run testRendimiento/PruebasPostma_MauricioBrito.json
           
 
 
