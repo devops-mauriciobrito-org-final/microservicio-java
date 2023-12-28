@@ -60,22 +60,26 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: jMeter binary
+      - name: DESCARGA jMeter binary
         run: |
           Invoke-WebRequest -Uri https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.6.2.tgz -OutFile apache-jmeter-5.6.2.tgz
           tar -xvzf apache-jmeter-5.6.2.tgz
           dir
 
-      - name: Download Node.js And Newman
+      - name: DESCARGA Install Chocolatey
         run: |
-          sudo apt-get install -y nodejs
+          Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    
+      - name: DESCARGA Newman
+        run: |
+          choco install nodejs
           npm install -g newman-reporter-htmlextra
           npm install -g newman
 
       - name: Ejecutar jMeter
         run: |
-          ls -lt
-          cd apache-jmeter-5.6.2
-          ls -lt
-          chmod 755 bin/jmeter.sh
-          ./apache-jmeter-5.6.2/bin/jmeter.sh -n -t testRendimiento/PruebasJMeter_MauricioBrito.jmx -l testRendimiento/respuestaJMeter.jtl
+          Get-ChildItem | Sort-Object LastWriteTime
+          Set-Location -Path .\apache-jmeter-5.6.2
+          Get-ChildItem | Sort-Object LastWriteTime
+          .\apache-jmeter-5.6.2\bin\jmeter.bat -n -t testRendimiento\PruebasJMeter_MauricioBrito.jmx -l testRendimiento\respuestaJMeter.jtl
+        
