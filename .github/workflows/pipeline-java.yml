@@ -101,7 +101,7 @@ jobs:
   
       - name: Verificación de la instalación
         run: |
-          'C:\Postman\Postman\Postman.exe' --version
+          & 'C:\Postman\Postman\Postman.exe' "--version"
           dir
   
       - name: Ejecutar Postman
