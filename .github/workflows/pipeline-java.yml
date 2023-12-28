@@ -62,7 +62,7 @@ jobs:
 
       - name: jMeter binary
         run: |
-          curl https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.6.2.tgz
+          curl -O https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.6.2.tgz
           tar -xvzf apache-jmeter-5.6.2.tgz
           ls -lt
 
