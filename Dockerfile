@@ -2,7 +2,7 @@ FROM openjdk:11-jre
 
 EXPOSE 8085
 
-ADD microservicio-java.jar /app/microservicio-java.jar
+ADD testing-web-2.6.0.jar /app/microservicio-java.jar
 
 WORKDIR /app
 

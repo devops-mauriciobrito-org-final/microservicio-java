@@ -20,7 +20,7 @@ jobs:
       - name: Análisis con SonarCloud
         run: |
           chmod +x gradlew 
-          
+          ./gradlew build sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
       - name: Login al Docker
         uses: docker/login-action@v2.2.0
@@ -31,7 +31,7 @@ jobs:
       - name: Copia de Jar a Raiz de proyecto
         run: |
           cp $GITHUB_WORKSPACE/build/libs/*.jar .
-          chmod 777 microservicio-java.jar
+          chmod 777 *.jar
           ls -lt 
       
       - name: Construccion de Docker
