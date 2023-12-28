@@ -82,7 +82,17 @@ jobs:
         run: |
           Get-ChildItem Env:
           .\apache-jmeter-5.6.2\bin\jmeter.bat -n -t testRendimiento\PruebasJMeter_MauricioBrito.jmx -l testRendimiento\respuestaJMeter.jtl
-
+    
+  postman:
+    runs-on: self-hosted
+    needs: aceptacion
+    steps:
+      - name: Install Chocolatey
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+          iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
         
+
         
         
