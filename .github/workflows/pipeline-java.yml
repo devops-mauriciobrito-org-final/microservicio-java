@@ -69,7 +69,7 @@ jobs:
 
       - name: Instalar Node / Newman
         run: |
-          Invoke-WebRequest 'https://nodejs.org/dist/v18.12.0/node-v18.12.0-win-x64.zip' OutFile 'C:/nodejs.zip'
+          Invoke-WebRequest 'https://nodejs.org/dist/v20.10.0/node-v20.10.0-win-x64.zip' OutFile 'C:/nodejs.zip'
           Expand-Archive C:\nodejs.zip -DestinationPath C:\
           Rename-Item "C:\\node-v18.12.0-win-x64" C:\nodejs
           $Env:Path += ";C:\nodejs"
